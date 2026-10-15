@@ -8,7 +8,7 @@ import { after, before, test } from 'node:test';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
 
-import { contains, materialize } from '../scripts/materialize.mjs';
+import { contains, materialize, selectSources } from '../scripts/materialize.mjs';
 
 const run = promisify(execFile);
 const CLI = fileURLToPath(new URL('../scripts/materialize.mjs', import.meta.url));
@@ -204,6 +204,42 @@ test('--sources selects a subset in catalog order', async () => {
   assert.deepEqual(receipt.sources.map((s) => s.id), ['beta']);
 });
 
+test('default selection skips inaccessible optional sources', async () => {
+  const unavailable = {
+    ...alphaSource(), id: 'unavailable', repo: 'fixture/unavailable', optional: true,
+    skillPaths: [{ path: '.', name: 'unavailable' }],
+  };
+  const catalogPath = await writeCatalog('optional-default', [alphaSource(), { ...betaSource(), optional: false }, unavailable]);
+  const output = outputDir('optional-default');
+  const result = await materialize({ output, catalogPath, repoUrl });
+  assert.deepEqual(result.sources, ['alpha', 'beta']);
+  assert.equal(result.skills, 3);
+  const receipt = JSON.parse(await fs.readFile(path.join(output, 'receipt.json')));
+  assert.deepEqual(receipt.sources.map((s) => s.id), ['alpha', 'beta']);
+  assert.equal(receipt.catalog.sha256, sha256(await fs.readFile(catalogPath)));
+  assert.equal((await materialize({ output, catalogPath, repoUrl })).status, 'unchanged');
+});
+
+test('--sources can explicitly select an optional source', async () => {
+  const catalogPath = await writeCatalog('optional-selected', [alphaSource(), { ...betaSource(), optional: true }]);
+  const output = outputDir('optional-selected');
+  const result = await materialize({ output, catalogPath, repoUrl, sources: ['beta'] });
+  assert.deepEqual(result.sources, ['beta']);
+  assert.equal(result.skills, 2);
+  assert.equal(await fs.readFile(path.join(output, 'skills/one/SKILL.md'), 'utf8'), BETA['skills/one/SKILL.md']);
+  const receipt = JSON.parse(await fs.readFile(path.join(output, 'receipt.json')));
+  assert.deepEqual(receipt.sources.map((s) => s.id), ['beta']);
+});
+
+test('rejects nonboolean optional fields before writing', async () => {
+  const output = outputDir('optional-invalid');
+  for (const optional of ['true', 'false', 0, 1, null, [], {}]) {
+    const catalogPath = await writeCatalog('optional-invalid', [{ ...betaSource(), optional }]);
+    await assert.rejects(materialize({ output, catalogPath, repoUrl }), /\.optional must be a boolean/);
+  }
+  await assert.rejects(fs.access(output));
+});
+
 test('an identical rerun is a verified no-op', async () => {
   const catalogPath = await writeCatalog('rerun', [alphaSource(), betaSource()]);
   const output = outputDir('rerun');
@@ -388,7 +424,7 @@ test('the CLI reports argument errors without writing', async () => {
   await assert.rejects(fs.access(output));
 });
 
-test('the shipped catalog lists exactly the five selected sources', async () => {
+test('the shipped catalog defaults to 19 skills and explicitly offers three optional AOS skills', async () => {
   const catalog = JSON.parse(await fs.readFile(fileURLToPath(new URL('../catalog.json', import.meta.url))));
   assert.deepEqual(catalog.sources.map((s) => [s.id, s.repo]), [
     ['humanizer', 'blader/humanizer'],
@@ -396,5 +432,17 @@ test('the shipped catalog lists exactly the five selected sources', async () => 
     ['karpathy-guidelines', 'multica-ai/andrej-karpathy-skills'],
     ['tiatft-find-tools', 'kwonzweig/there-is-a-tool-for-that'],
     ['vercel-find-skills', 'vercel-labs/skills'],
+    ['agent-operating-standards', 'kwonzweig/agent-operating-standards'],
+  ]);
+  const defaults = selectSources(catalog);
+  assert.equal(defaults.length, 5);
+  assert.equal(defaults.reduce((count, source) => count + source.skillPaths.length, 0), 19);
+  const aos = selectSources(catalog, ['agent-operating-standards']);
+  assert.equal(aos.length, 1);
+  assert.equal(aos[0].optional, true);
+  assert.deepEqual(aos[0].skillPaths, [
+    { path: 'skills/agent-operating-standards', name: 'agent-operating-standards' },
+    { path: 'skills/source-discovery', name: 'source-discovery' },
+    { path: 'skills/skill-authoring', name: 'skill-authoring' },
   ]);
 });

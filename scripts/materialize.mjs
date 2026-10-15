@@ -28,7 +28,7 @@ const WINDOWS_DEVICE_NAME = /^(con|prn|aux|nul|com[1-9¹²³]|lpt[1-9¹²³]|con
 
 const KEYS = {
   catalog: ['version', 'sources'],
-  source: ['id', 'repo', 'commit', 'license', 'skillPaths'],
+  source: ['id', 'repo', 'commit', 'license', 'skillPaths', 'optional'],
   skillPath: ['path', 'name'],
 };
 
@@ -98,6 +98,9 @@ export function validateCatalog(catalog) {
   for (const [index, source] of catalog.sources.entries()) {
     const label = `catalog.sources[${index}]`;
     checkKeys(source, KEYS.source, label);
+    if (Object.hasOwn(source, 'optional') && typeof source.optional !== 'boolean') {
+      fail(`${label}.optional must be a boolean`);
+    }
     if (typeof source.id !== 'string' || !SOURCE_ID.test(source.id) || !isPortableName(source.id)) {
       fail(`${label}.id is invalid`);
     }
@@ -131,7 +134,7 @@ export function validateCatalog(catalog) {
 }
 
 export function selectSources(catalog, requested) {
-  if (requested === undefined) return catalog.sources;
+  if (requested === undefined) return catalog.sources.filter((source) => source.optional !== true);
   const ids = requested.map((id) => id.trim()).filter(Boolean);
   if (ids.length === 0) fail('--sources needs at least one source id');
   const known = new Set(catalog.sources.map((source) => source.id));
