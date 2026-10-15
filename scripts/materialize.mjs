@@ -12,7 +12,7 @@ import { promisify } from 'node:util';
 const execFileAsync = promisify(execFile);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_CATALOG = path.join(ROOT, 'catalog.json');
-const CACHE_PREFIX = 'agent-skill-catalog-';
+const CACHE_PREFIX = 'universal-skill-catalog-';
 
 const SHA40 = /^[0-9a-f]{40}$/;
 const SOURCE_ID = /^[a-z0-9][a-z0-9-]*$/;

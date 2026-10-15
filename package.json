@@ -1,12 +1,12 @@
 {
-  "name": "agent-skill-catalog",
+  "name": "universal-skill-catalog",
   "version": "1.0.0",
   "private": true,
-  "description": "A curated catalog and downloader for pinned AI agent skills.",
+  "description": "A curated set of universal AI agent skills, downloaded together at pinned versions.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kwonzweig/agent-skill-catalog.git"
+    "url": "https://github.com/kwonzweig/universal-skill-catalog.git"
   },
   "type": "module",
   "engines": {
