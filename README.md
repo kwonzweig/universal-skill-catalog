@@ -1,7 +1,12 @@
-# Agent Skill Catalog
+# Universal Skill Catalog
 
-A curated set of general-purpose skills for AI agents. Download the original
-skill files at fixed versions, then choose which ones to use in your agent.
+A curated set of skills for the work AI agents do across projects: writing,
+planning, finding tools, coding, and checking results. Download the collection
+with one command, at fixed versions, and choose which skills your agent uses.
+
+The same catalog can supply a personal agent setup or a team setup. Each source
+stays in its original repository; this catalog records what to include and which
+version to download.
 
 [catalog.json](catalog.json) lists 19 skills from five sources:
 
@@ -18,8 +23,8 @@ skill files at fixed versions, then choose which ones to use in your agent.
 Requires Node.js 22+ and Git. No npm packages are needed.
 
 ```sh
-git clone https://github.com/kwonzweig/agent-skill-catalog.git
-cd agent-skill-catalog
+git clone https://github.com/kwonzweig/universal-skill-catalog.git
+cd universal-skill-catalog
 node scripts/materialize.mjs --output ../skill-bundle
 ```
 
@@ -69,7 +74,7 @@ Edit the source commits or skill paths in `catalog.json`, run `npm test`, and
 download to a new directory to inspect the result. Proposals for new skills
 should explain how they help across projects.
 
-Report security issues through [private vulnerability reporting](https://github.com/kwonzweig/agent-skill-catalog/security/advisories/new).
+Report security issues through [private vulnerability reporting](https://github.com/kwonzweig/universal-skill-catalog/security/advisories/new).
 
 ## License
 
