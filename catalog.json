@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "humanizer",
+      "repo": "blader/humanizer",
+      "commit": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
+      "license": "MIT",
+      "skillPaths": [{ "path": ".", "name": "humanizer" }]
+    },
+    {
+      "id": "superpowers",
+      "repo": "obra/superpowers",
+      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "license": "MIT",
+      "skillPaths": [
+        { "path": "skills/brainstorming", "name": "brainstorming" },
+        { "path": "skills/diagnosing-superpowers", "name": "diagnosing-superpowers" },
+        { "path": "skills/dispatching-parallel-agents", "name": "dispatching-parallel-agents" },
+        { "path": "skills/executing-plans", "name": "executing-plans" },
+        { "path": "skills/finishing-a-development-branch", "name": "finishing-a-development-branch" },
+        { "path": "skills/receiving-code-review", "name": "receiving-code-review" },
+        { "path": "skills/requesting-code-review", "name": "requesting-code-review" },
+        { "path": "skills/subagent-driven-development", "name": "subagent-driven-development" },
+        { "path": "skills/systematic-debugging", "name": "systematic-debugging" },
+        { "path": "skills/test-driven-development", "name": "test-driven-development" },
+        { "path": "skills/using-git-worktrees", "name": "using-git-worktrees" },
+        { "path": "skills/using-superpowers", "name": "using-superpowers" },
+        { "path": "skills/verification-before-completion", "name": "verification-before-completion" },
+        { "path": "skills/writing-plans", "name": "writing-plans" },
+        { "path": "skills/writing-skills", "name": "writing-skills" }
+      ]
+    },
+    {
+      "id": "karpathy-guidelines",
+      "repo": "multica-ai/andrej-karpathy-skills",
+      "commit": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+      "license": "MIT",
+      "skillPaths": [{ "path": "skills/karpathy-guidelines", "name": "karpathy-guidelines" }]
+    },
+    {
+      "id": "tiatft-find-tools",
+      "repo": "kwonzweig/there-is-a-tool-for-that",
+      "commit": "7653d1cc78d4a3c7a4dc459e095606b7aaa430c3",
+      "license": "MIT",
+      "skillPaths": [{ "path": "skills/find-tools", "name": "find-tools" }]
+    },
+    {
+      "id": "vercel-find-skills",
+      "repo": "vercel-labs/skills",
+      "commit": "14cf84aa922cccc7e5b11fee5af9a01b3750fddf",
+      "license": "MIT",
+      "skillPaths": [{ "path": "skills/find-skills", "name": "find-skills" }]
+    }
+  ]
+}
