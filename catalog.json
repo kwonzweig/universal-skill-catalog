@@ -55,7 +55,7 @@
     {
       "id": "agent-operating-standards",
       "repo": "kwonzweig/agent-operating-standards",
-      "commit": "13766b74faa89ff3b0ef7cc09ebd6ff632e78361",
+      "commit": "0d47245c1edf5970dbbb763aa3ebcc3ae6f8f2c5",
       "license": "UNLICENSED",
       "optional": true,
       "skillPaths": [
