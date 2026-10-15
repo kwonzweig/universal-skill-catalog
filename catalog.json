@@ -51,6 +51,18 @@
       "commit": "14cf84aa922cccc7e5b11fee5af9a01b3750fddf",
       "license": "MIT",
       "skillPaths": [{ "path": "skills/find-skills", "name": "find-skills" }]
+    },
+    {
+      "id": "agent-operating-standards",
+      "repo": "kwonzweig/agent-operating-standards",
+      "commit": "0d47245c1edf5970dbbb763aa3ebcc3ae6f8f2c5",
+      "license": "UNLICENSED",
+      "optional": true,
+      "skillPaths": [
+        { "path": "skills/agent-operating-standards", "name": "agent-operating-standards" },
+        { "path": "skills/source-discovery", "name": "source-discovery" },
+        { "path": "skills/skill-authoring", "name": "skill-authoring" }
+      ]
     }
   ]
 }

@@ -8,7 +8,8 @@ The same catalog can supply a personal agent setup or a team setup. Each source
 stays in its original repository; this catalog records what to include and which
 version to download.
 
-[catalog.json](catalog.json) lists 19 skills from five sources:
+[catalog.json](catalog.json) lists 22 skills from six sources. The default
+download includes 19 skills from five sources:
 
 | Source | Purpose | Download ID |
 | --- | --- | --- |
@@ -17,6 +18,13 @@ version to download.
 | [Karpathy Guidelines](https://github.com/multica-ai/andrej-karpathy-skills) | Keep coding changes focused and check assumptions | `karpathy-guidelines` |
 | [There's a Tool for That](https://github.com/kwonzweig/there-is-a-tool-for-that) | Find existing tools before building one | `tiatft-find-tools` |
 | [Vercel find-skills](https://github.com/vercel-labs/skills) | Find and install additional skills | `vercel-find-skills` |
+| [Agent Operating Standards](https://github.com/kwonzweig/agent-operating-standards) | Agent judgment and skill workflows (optional, private) | `agent-operating-standards` |
+
+Agent Operating Standards is an optional private source containing
+agent-operating-standards, source-discovery and skill-authoring. Personal Kit and
+Paper Kit Plugin explicitly select this source. Access requires authorization to
+the private repository; UNLICENSED is not a license grant. The catalog carries its
+source metadata, not its private instruction text.
 
 ## Download
 
@@ -35,6 +43,14 @@ node scripts/materialize.mjs --output ../writing-skills --sources humanizer,tiat
 ```
 
 Selecting Superpowers downloads all 15 of its listed skills.
+
+Sources marked `"optional": true` in `catalog.json` are skipped by the default
+download. An absent `optional` field or `"optional": false` includes the source
+by default. `--sources` can explicitly select any listed source, including
+optional ones. The `optional` field accepts only a boolean.
+
+If a selected source requires repository access, configure Git authentication
+first. The downloader uses your existing Git authentication.
 
 The output contains:
 
