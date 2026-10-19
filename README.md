@@ -18,13 +18,12 @@ download includes 19 skills from five sources:
 | [Karpathy Guidelines](https://github.com/multica-ai/andrej-karpathy-skills) | Keep coding changes focused and check assumptions | `karpathy-guidelines` |
 | [There's a Tool for That](https://github.com/kwonzweig/there-is-a-tool-for-that) | Find existing tools before building one | `tiatft-find-tools` |
 | [Vercel find-skills](https://github.com/vercel-labs/skills) | Find and install additional skills | `vercel-find-skills` |
-| [Agent Operating Standards](https://github.com/kwonzweig/agent-operating-standards) | Shared operating rules (optional, private) | `agent-operating-standards` |
+| [Agent Operating Standards](https://github.com/kwonzweig/agent-operating-standards) | Personal operating rules (optional, no license grant) | `agent-operating-standards` |
 
-Agent Operating Standards is an optional private source containing one skill,
-agent-operating-standards. Personal Kit and
-Paper Kit Plugin explicitly select this source. Access requires authorization to
-the private repository; UNLICENSED is not a license grant. The catalog carries its
-source metadata, not its private instruction text.
+Agent Operating Standards is a public, optional source containing one skill,
+agent-operating-standards. It is published without a license grant (`UNLICENSED`)
+and is excluded from the default download. Public access does not grant permission
+to reuse or redistribute it.
 
 ## Download
 
