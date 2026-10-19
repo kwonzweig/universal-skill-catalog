@@ -55,13 +55,11 @@
     {
       "id": "agent-operating-standards",
       "repo": "kwonzweig/agent-operating-standards",
-      "commit": "0d47245c1edf5970dbbb763aa3ebcc3ae6f8f2c5",
+      "commit": "1b34908d3f011bb5f6e645ce7e0b1c964de10d44",
       "license": "UNLICENSED",
       "optional": true,
       "skillPaths": [
-        { "path": "skills/agent-operating-standards", "name": "agent-operating-standards" },
-        { "path": "skills/source-discovery", "name": "source-discovery" },
-        { "path": "skills/skill-authoring", "name": "skill-authoring" }
+        { "path": "skills/agent-operating-standards", "name": "agent-operating-standards" }
       ]
     }
   ]

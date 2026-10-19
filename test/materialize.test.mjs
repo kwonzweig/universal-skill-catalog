@@ -424,7 +424,7 @@ test('the CLI reports argument errors without writing', async () => {
   await assert.rejects(fs.access(output));
 });
 
-test('the shipped catalog defaults to 19 skills and explicitly offers three optional AOS skills', async () => {
+test('the shipped catalog defaults to 19 skills and explicitly offers one optional AOS skill', async () => {
   const catalog = JSON.parse(await fs.readFile(fileURLToPath(new URL('../catalog.json', import.meta.url))));
   assert.deepEqual(catalog.sources.map((s) => [s.id, s.repo]), [
     ['humanizer', 'blader/humanizer'],
@@ -442,7 +442,5 @@ test('the shipped catalog defaults to 19 skills and explicitly offers three opti
   assert.equal(aos[0].optional, true);
   assert.deepEqual(aos[0].skillPaths, [
     { path: 'skills/agent-operating-standards', name: 'agent-operating-standards' },
-    { path: 'skills/source-discovery', name: 'source-discovery' },
-    { path: 'skills/skill-authoring', name: 'skill-authoring' },
   ]);
 });
