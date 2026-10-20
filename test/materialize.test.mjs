@@ -424,7 +424,7 @@ test('the CLI reports argument errors without writing', async () => {
   await assert.rejects(fs.access(output));
 });
 
-test('the shipped catalog defaults to 19 skills and explicitly offers one optional AOS skill', async () => {
+test('the shipped catalog defaults to 19 skills and offers optional AOS and reality-sense sources', async () => {
   const catalog = JSON.parse(await fs.readFile(fileURLToPath(new URL('../catalog.json', import.meta.url))));
   assert.deepEqual(catalog.sources.map((s) => [s.id, s.repo]), [
     ['humanizer', 'blader/humanizer'],
@@ -433,6 +433,7 @@ test('the shipped catalog defaults to 19 skills and explicitly offers one option
     ['tiatft-find-tools', 'kwonzweig/there-is-a-tool-for-that'],
     ['vercel-find-skills', 'vercel-labs/skills'],
     ['agent-operating-standards', 'kwonzweig/agent-operating-standards'],
+    ['reality-sense', 'kwonzweig/reality-sense'],
   ]);
   const defaults = selectSources(catalog);
   assert.equal(defaults.length, 5);
@@ -442,5 +443,12 @@ test('the shipped catalog defaults to 19 skills and explicitly offers one option
   assert.equal(aos[0].optional, true);
   assert.deepEqual(aos[0].skillPaths, [
     { path: 'skills/agent-operating-standards', name: 'agent-operating-standards' },
+  ]);
+  const reality = selectSources(catalog, ['reality-sense']);
+  assert.equal(reality.length, 1);
+  assert.equal(reality[0].optional, true);
+  assert.equal(reality[0].license, 'UNLICENSED');
+  assert.deepEqual(reality[0].skillPaths, [
+    { path: 'skills/reality-sense', name: 'reality-sense' },
   ]);
 });
