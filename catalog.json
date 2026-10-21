@@ -61,16 +61,6 @@
       "skillPaths": [
         { "path": "skills/agent-operating-standards", "name": "agent-operating-standards" }
       ]
-    },
-    {
-      "id": "reality-sense",
-      "repo": "kwonzweig/reality-sense",
-      "commit": "3cf8a2f62a27ad019823a575d2f312e6ad20369e",
-      "license": "UNLICENSED",
-      "optional": true,
-      "skillPaths": [
-        { "path": "skills/reality-sense", "name": "reality-sense" }
-      ]
     }
   ]
 }
