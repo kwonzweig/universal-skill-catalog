@@ -19,9 +19,9 @@ download includes 19 skills from five sources:
 | [There's a Tool for That](https://github.com/kwonzweig/there-is-a-tool-for-that) | Find existing tools before building one | `tiatft-find-tools` |
 | [Vercel find-skills](https://github.com/vercel-labs/skills) | Find and install additional skills | `vercel-find-skills` |
 | [Agent Operating Standards](https://github.com/kwonzweig/agent-operating-standards) | Personal operating rules (optional, no license grant) | `agent-operating-standards` |
-| [Reality Sense](https://github.com/kwonzweig/reality-sense) | Check recommendations against firsthand reports and adoption (optional, no license grant) | `reality-sense` |
+| [Practical Judgement](https://github.com/kwonzweig/reality-sense) | Resource rationality, double-loop learning, and evidence synthesis (optional, no license grant) | `reality-sense` |
 
-Agent Operating Standards and Reality Sense are public, optional sources, each
+Agent Operating Standards and Practical Judgement (`reality-sense`) are public, optional sources, each
 containing one skill. Both are `UNLICENSED` and excluded from the default download.
 Public access does not grant permission to reuse or redistribute them.
 
