@@ -83,6 +83,11 @@ The download script does not configure plugins, hooks, or agent instructions.
 For the complete Superpowers setup, follow its
 [installation guide](https://github.com/obra/superpowers#installation).
 
+## Load at session start
+
+[load.json](load.json) names the skills an agent loads at the start of every
+session. `npm test` checks that each name is listed in `catalog.json`.
+
 ## Make changes
 
 Edit the source commits or skill paths in `catalog.json`, run `npm test`, and
