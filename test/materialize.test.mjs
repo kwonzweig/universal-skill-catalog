@@ -452,3 +452,13 @@ test('the shipped catalog defaults to 19 skills and offers optional AOS and real
     { path: 'skills/reality-sense', name: 'reality-sense' },
   ]);
 });
+
+test('load.json names skills that catalog.json lists', async () => {
+  const read = async (name) => JSON.parse(await fs.readFile(fileURLToPath(new URL(`../${name}`, import.meta.url))));
+  const load = await read('load.json');
+  const catalog = await read('catalog.json');
+  const listed = new Set(catalog.sources.flatMap((source) => source.skillPaths.map((skill) => skill.name)));
+  assert.ok(Array.isArray(load) && load.length > 0, 'load.json must be a non-empty array of skill names');
+  assert.equal(new Set(load).size, load.length, 'load.json lists a skill twice');
+  for (const name of load) assert.ok(listed.has(name), `load.json names "${name}", which catalog.json does not list`);
+});
