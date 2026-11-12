@@ -53,6 +53,13 @@
       "skillPaths": [{ "path": "skills/find-skills", "name": "find-skills" }]
     },
     {
+      "id": "ai-slop-prevention",
+      "repo": "kwonzweig/ai-slop-prevention",
+      "commit": "13b7ca4a005ed46c47e24235653ae7b355a86d56",
+      "license": "MIT",
+      "skillPaths": [{ "path": ".", "name": "ai-slop-prevention" }]
+    },
+    {
       "id": "agent-operating-standards",
       "repo": "kwonzweig/agent-operating-standards",
       "commit": "e12f3eae70da3102dd5eb8fc71907fd705417f0f",
