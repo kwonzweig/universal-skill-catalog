@@ -55,7 +55,7 @@
     {
       "id": "ai-slop-prevention",
       "repo": "kwonzweig/ai-slop-prevention",
-      "commit": "13b7ca4a005ed46c47e24235653ae7b355a86d56",
+      "commit": "2e3fb1ff69b5edc8f2334b25bf2af3ff7b3c3013",
       "license": "MIT",
       "skillPaths": [{ "path": ".", "name": "ai-slop-prevention" }]
     },
