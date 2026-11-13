@@ -424,7 +424,7 @@ test('the CLI reports argument errors without writing', async () => {
   await assert.rejects(fs.access(output));
 });
 
-test('the shipped catalog defaults to 19 skills and offers optional AOS and reality-sense sources', async () => {
+test('the shipped catalog defaults to 20 skills and offers optional AOS and reality-sense sources', async () => {
   const catalog = JSON.parse(await fs.readFile(fileURLToPath(new URL('../catalog.json', import.meta.url))));
   assert.deepEqual(catalog.sources.map((s) => [s.id, s.repo]), [
     ['humanizer', 'blader/humanizer'],
@@ -432,12 +432,13 @@ test('the shipped catalog defaults to 19 skills and offers optional AOS and real
     ['karpathy-guidelines', 'multica-ai/andrej-karpathy-skills'],
     ['tiatft-find-tools', 'kwonzweig/there-is-a-tool-for-that'],
     ['vercel-find-skills', 'vercel-labs/skills'],
+    ['ai-slop-prevention', 'kwonzweig/ai-slop-prevention'],
     ['agent-operating-standards', 'kwonzweig/agent-operating-standards'],
     ['reality-sense', 'kwonzweig/reality-sense'],
   ]);
   const defaults = selectSources(catalog);
-  assert.equal(defaults.length, 5);
-  assert.equal(defaults.reduce((count, source) => count + source.skillPaths.length, 0), 19);
+  assert.equal(defaults.length, 6);
+  assert.equal(defaults.reduce((count, source) => count + source.skillPaths.length, 0), 20);
   const aos = selectSources(catalog, ['agent-operating-standards']);
   assert.equal(aos.length, 1);
   assert.equal(aos[0].optional, true);

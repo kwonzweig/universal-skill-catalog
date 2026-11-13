@@ -8,8 +8,8 @@ The same catalog can supply a personal agent setup or a team setup. Each source
 stays in its original repository; this catalog records what to include and which
 version to download.
 
-[catalog.json](catalog.json) lists 21 skills from seven sources. The default
-download includes 19 skills from five sources:
+[catalog.json](catalog.json) lists 22 skills from eight sources. The default
+download includes 20 skills from six sources:
 
 | Source | Purpose | Download ID |
 | --- | --- | --- |
@@ -18,6 +18,7 @@ download includes 19 skills from five sources:
 | [Karpathy Guidelines](https://github.com/multica-ai/andrej-karpathy-skills) | Keep coding changes focused and check assumptions | `karpathy-guidelines` |
 | [There's a Tool for That](https://github.com/kwonzweig/there-is-a-tool-for-that) | Find existing tools before building one | `tiatft-find-tools` |
 | [Vercel find-skills](https://github.com/vercel-labs/skills) | Find and install additional skills | `vercel-find-skills` |
+| [AI Slop Prevention](https://github.com/kwonzweig/ai-slop-prevention) | Catch the habits generated screens, documents and data models fall into | `ai-slop-prevention` |
 | [Agent Operating Standards](https://github.com/kwonzweig/agent-operating-standards) | Personal operating rules (optional, no license grant) | `agent-operating-standards` |
 | [Practical Judgement](https://github.com/kwonzweig/reality-sense) | Resource rationality, double-loop learning, and evidence synthesis (optional, no license grant) | `reality-sense` |
 
