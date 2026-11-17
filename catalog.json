@@ -55,7 +55,7 @@
     {
       "id": "ai-slop-prevention",
       "repo": "kwonzweig/ai-slop-prevention",
-      "commit": "2e3fb1ff69b5edc8f2334b25bf2af3ff7b3c3013",
+      "commit": "8019a5df8259de19dced6e27164df5754bcd40b5",
       "license": "MIT",
       "skillPaths": [{ "path": ".", "name": "ai-slop-prevention" }]
     },
@@ -72,7 +72,7 @@
     {
       "id": "reality-sense",
       "repo": "kwonzweig/reality-sense",
-      "commit": "d4672034b26f8f891fc8ba0dceaabecd948afc26",
+      "commit": "b31f48cf46060b0a82a224af39028deae7331e75",
       "license": "UNLICENSED",
       "optional": true,
       "skillPaths": [

@@ -20,7 +20,7 @@ download includes 20 skills from six sources:
 | [Vercel find-skills](https://github.com/vercel-labs/skills) | Find and install additional skills | `vercel-find-skills` |
 | [AI Slop Prevention](https://github.com/kwonzweig/ai-slop-prevention) | Catch the habits generated screens, documents and data models fall into | `ai-slop-prevention` |
 | [Agent Operating Standards](https://github.com/kwonzweig/agent-operating-standards) | Personal operating rules (optional, no license grant) | `agent-operating-standards` |
-| [Practical Judgement](https://github.com/kwonzweig/reality-sense) | Resource rationality, double-loop learning, and evidence synthesis (optional, no license grant) | `reality-sense` |
+| [Practical Judgement](https://github.com/kwonzweig/reality-sense) | Practical judgement for decisions in context (optional, no license grant) | `reality-sense` |
 
 Agent Operating Standards and Practical Judgement (`reality-sense`) are public, optional sources, each
 containing one skill. Both are `UNLICENSED` and excluded from the default download.
